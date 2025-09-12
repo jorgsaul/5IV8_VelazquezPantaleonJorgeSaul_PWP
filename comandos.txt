@@ -1,0 +1,5 @@
+git init (inicializar un proyecto por primera vez, solo se usa cuando se inizializa una carpeta)
+git config --global user.name "jorgsaul" (configurar en la maquina el usuario)
+git config --global user.email "jvelazquezp2301@alumno.ipn.mx"
+git add .
+git status
