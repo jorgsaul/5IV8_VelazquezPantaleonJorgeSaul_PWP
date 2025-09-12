@@ -3,3 +3,6 @@ git config --global user.name "jorgsaul" (configurar en la maquina el usuario)
 git config --global user.email "jvelazquezp2301@alumno.ipn.mx"
 git add .
 git status
+git remote add origin https://github.com/jorgsaul/5IV8_VelazquezPantaleonJorgeSaul_PWP.git
+git branch -M main
+git push origin main
