@@ -5,4 +5,5 @@ git add .
 git status
 git remote add origin https://github.com/jorgsaul/5IV8_VelazquezPantaleonJorgeSaul_PWP.git
 git branch -M main
+git commit -m "first commit"
 git push origin main
