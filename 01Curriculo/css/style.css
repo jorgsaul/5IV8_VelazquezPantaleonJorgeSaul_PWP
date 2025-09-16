@@ -1,10 +1,14 @@
+.container-body{
+  display: flex;
+  grid-gap: 0 10%;
+}
 .acercaDeMi{
   background-color: rgb(143, 143, 248);
 }
 
 aside{
   background-color: rgb(255, 205, 205);
-  
+  justify-content: right;
 }
 
 footer{
