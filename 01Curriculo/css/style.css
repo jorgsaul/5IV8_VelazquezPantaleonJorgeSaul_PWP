@@ -10,16 +10,25 @@ body{
 /*CONTENIDO*/
 .container-body{
   display: flex;
-  grid-gap: 0 10%;
   margin-top: 150px;
 }
 .acercaDeMi{
-  background-color: rgb(143, 143, 248);
+  font-size: x-large;
+  text-align: justify;
+}
+.acercaDeMi p{
+  line-height: 1.5;
+}
+
+.acerca-texto {
+  column-count: 2;
+  column-gap: 7%;
 }
 
 .contenido{
   margin-left: 5%;
   margin-right: 2%;
+  width: 60vw;
 }
 
 /*FOOTER*/
