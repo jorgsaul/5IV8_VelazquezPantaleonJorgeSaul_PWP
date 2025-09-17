@@ -1,6 +1,10 @@
+*{
+  margin: 0;
+}
 .container-body{
   display: flex;
   grid-gap: 0 10%;
+  margin-top: 150px;
 }
 .acercaDeMi{
   background-color: rgb(143, 143, 248);
@@ -14,3 +18,58 @@ aside{
 footer{
   background-color: rgb(117, 115, 115);
 }
+
+/* BANNER */
+.banner{
+  justify-content: center;
+  align-items: center;
+  background-color: aqua;
+  margin: 0;
+  background-color: black;
+  margin-bottom: 2%;
+}
+
+.banner-texto{
+  font-size: 210%;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  top: 20%;
+  left: 50%;
+  z-index: 1;         
+  color: white;
+  text-align: center;
+}
+
+.superior{
+  
+  font-size: large;
+  color: white;
+}
+
+.banner-imagen{
+  background-color: white;
+  background-image: url('/01Curriculo/img/banner\ 2.JPG');
+  background-size: cover;
+  background-position: center;
+  padding: 1%;
+  height: 37vh;
+  filter:blur(6px);
+}
+
+.inferior{
+  display: flex;
+  position: absolute;
+  top: 30%;
+  left: 45%;
+  justify-content: center;
+  align-items: center;
+}
+
+.steamhappy{
+  height: 225px;
+  width: 225px;
+  border-radius: 100%;
+  background-color: rgb(100, 90, 90);
+  border: 4px solid white
+}
+
