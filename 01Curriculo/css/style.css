@@ -7,6 +7,7 @@ body{
   background-color: rgb(255, 255, 255);
 }
 
+/*CONTENIDO*/
 .container-body{
   display: flex;
   grid-gap: 0 10%;
@@ -16,11 +17,12 @@ body{
   background-color: rgb(143, 143, 248);
 }
 
-aside{
-  background-color: rgb(255, 205, 205);
-  justify-content: right;
+.contenido{
+  margin-left: 5%;
+  margin-right: 2%;
 }
 
+/*FOOTER*/
 footer{
   background-color: rgb(117, 115, 115);
 }
@@ -32,6 +34,77 @@ nav{
   background-color: aliceblue;
 }
 
+/*ASIDE*/
+aside{
+  background-color: rgb(236, 236, 236);
+  justify-content: right;
+  margin-left: 1vw;
+  width: 15vw;
+  height: 70vh;
+  padding: 2%;
+  border-radius: 20px;
+}
+
+.formulario {
+  display: flex;
+  flex-direction: column;
+}
+
+.formulario label {
+  margin-top: 15px;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+.formulario input,
+.formulario textarea {
+  padding: 4%;
+  border: 1px solid #c9c9c9;
+  border-radius: 5px;
+  font-size: 1rem;
+}
+
+.formulario button {
+  margin-top: 20px;
+  padding: 12px;
+  background-color: #0066ff;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.formulario button:hover {
+  background-color: #0044cc;
+}
+
+.redes{
+  margin-top: 10%;
+  height: 50%;
+  padding: 3%;
+}
+.redes-imagenes{
+  display: flex;
+  flex-direction: column;
+
+}
+.redes-imagenes img{
+  width: 3vw;
+  height: 3vw;
+  margin-top: 3%;
+}
+.redes-imagenes a{
+  text-decoration: none;
+  color: black;
+  margin-left: 2%;
+}
+
+.redes-imagenes div{
+  display: flex;
+  align-items: center;
+}
 /* BANNER */
 .banner{
   justify-content: center;
