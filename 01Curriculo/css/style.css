@@ -1,6 +1,12 @@
 *{
   margin: 0;
+  font-family: sans-serif;
 }
+
+body{
+  background-color: rgb(255, 255, 255);
+}
+
 .container-body{
   display: flex;
   grid-gap: 0 10%;
@@ -21,9 +27,9 @@ footer{
 
 /*NAV*/
 nav{
-  background-color: red;
+  font-size: xx-large;
   height: 6vh;
-  
+  background-color: aliceblue;
 }
 
 /* BANNER */
@@ -45,7 +51,6 @@ nav{
   color: white;
   text-align: center;
 }
-
 
 .banner-imagen{
   background-color: white;
