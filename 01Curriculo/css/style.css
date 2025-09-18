@@ -75,10 +75,30 @@ body{
 
 /*FOOTER*/
 footer{
-  background-color: rgb(117, 115, 115);
+  background-color: rgb(180, 180, 180);
   margin-top: 2%;
+  height: 40vh;
+  padding: 2%;
+  display: flex;
+  justify-content: center;
 }
-
+.texto-footer a{
+  text-decoration: none;
+  color: rgb(76, 76, 76);
+}
+.contendor-contenido{
+  text-align: center;
+  color: rgb(76, 76, 76);
+}
+.contendor-contenido div{
+  margin-bottom: 5%;
+}
+.footer-logo{
+  width: 10vw;
+}
+.imagenes-extra img{
+  width: 3vw;
+}
 /*NAV*/
 nav{
   font-size: xx-large;
