@@ -3,19 +3,59 @@
   font-family: sans-serif;
 }
 
+section{
+  margin-bottom: 2%;
+}
+
 body{
   background-color: rgb(255, 255, 255);
 }
 
 /*CONTENIDO*/
+
+.programacion ul{
+  margin-left: 5%;
+  margin-top: 5%;
+}
+.idiomas p{
+  text-align: left;
+  margin-left: 5%;
+  margin-top: 4%;
+}
+.contendor-barra{
+  width: 2%;
+  text-align: left;
+}
+.barra-1, .barra-2, .barra-3{
+  border-radius: 2vw;
+  width: 100%;
+  height: 1vw;
+  background-color: #0066ff;
+}
+.barra-2{
+  background: linear-gradient(to right, #0066ff 70%, rgb(185, 185, 185) 30%);
+}
+.barra-3{
+  background: linear-gradient(to left, rgb(185, 185, 185) 80%, #0066ff 20%);
+}
+
+.formacion div li{
+  text-align: left;
+}
+.academico, .programacion, .idiomas{
+  width: 15vw;
+  text-align: center;
+}
+
+.formacion{
+  display: flex;
+  justify-content: space-between;
+}
 .container-body{
   display: flex;
   margin-top: 150px;
 }
-.acercaDeMi{
-  font-size: x-large;
-  text-align: justify;
-}
+
 .acercaDeMi p{
   line-height: 1.5;
 }
@@ -29,11 +69,14 @@ body{
   margin-left: 5%;
   margin-right: 2%;
   width: 60vw;
+  font-size: x-large;
+  text-align: justify;
 }
 
 /*FOOTER*/
 footer{
   background-color: rgb(117, 115, 115);
+  margin-top: 2%;
 }
 
 /*NAV*/
