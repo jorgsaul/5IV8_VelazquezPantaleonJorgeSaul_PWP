@@ -199,7 +199,7 @@ aside{
 
 .banner-imagen{
   background-color: white;
-  background-image: url('../img/banner.png');
+  background-image: url('/01Curriculo/img/banner.png');
   background-size: cover;
   background-position: center;
   padding: 1%;
