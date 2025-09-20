@@ -112,7 +112,7 @@ aside{
   justify-content: right;
   margin-left: 1vw;
   width: 15vw;
-  height: 70vh;
+  height: fit-content;
   padding: 2%;
   border-radius: 20px;
 }
