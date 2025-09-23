@@ -12,3 +12,12 @@ body{
   flex-direction: column;
   align-content: center;
 }
+
+.userlogin{
+  background-color: aliceblue;
+  width: 600px;
+  height: 40px;
+  border-radius: 10px;
+  margin-top: 10%;
+  text-align: center;
+}
