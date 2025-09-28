@@ -1,5 +1,6 @@
 *{
   font-size: 20px;
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; 
 }
 
 .links{
@@ -11,6 +12,8 @@
 body{
   justify-content: center;
   align-items: center;
+  background-color: #eeeeee;
+  display: flex;
 }
 
 a{
@@ -28,4 +31,22 @@ a{
 a:hover{
   background-color: #3B82F6;
   color: white;
+}
+
+.contenedor{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background-color: white;
+  padding: 60px;
+  height: fit-content;
+  width: fit-content;
+  border-radius: 40px;
+  margin-top: 2rem;
+}
+
+h1{
+  font-size: 2rem;
 }
