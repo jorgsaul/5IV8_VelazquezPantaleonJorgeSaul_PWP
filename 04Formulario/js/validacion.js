@@ -46,41 +46,22 @@ function validar(formulario){
     }
   }
 
-  checkStr = formulario.nombre.edad;
+  var edadRegex = /^(100|[1-9][0-9]?)$/
+  var edad = formulario.edad.value;
 
-  if(checkStr){
-    var abcOK = "123456789"
-    var allValido = true;
-
-    //tenemos que comparar la cadena de nombre vs abc
-    for(var i = 0; i<checkStr.length; i++){
-      var caracteres = checkStr.charAt(i);
-      for(var j = 0; j<abcOK.length; j++){
-        if(caracteres == abcOK.charAt(j)){
-          break
-        }
-      }
-
-      if (j == abcOK.length){
-        allValido = false;
-        break;
-      }
-
-    }
-
-    if(!allValido){
-      alert('escriba unicamente digitos en el campo nombre')
-      formulario.edad.focus();
-      return false
-    }
+  if (!edadRegex.test(edad)) {
+    alert('Por favor, escribe una edad válida entre 1 y 100');
+    formulario.edad.focus();
+    return false;
   }
   
   //vamos a crear una funcion de una expresion regular para validar el correo electronico
   //texto.texto@texto.texto
 
-  var b = /^[^@\s]+[^@\.\s]+(\.[^@\.\s]+)+$/;
+  var b = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   var txt = formulario.correo.value;
 
   alert("email " +( b.test(txt) ? " ": " no ") +"valido")
   return b.test;
+
 }
