@@ -11,7 +11,7 @@
     <h2>Calculo de sueldo con comisiones</h2>
     <form action="">
       <div>
-        <label for="">Ingrese su sueldo base por mes</label><input type="text" placeholder="Sueldo Base" class="input_text">
+        <label for="">Ingrese su sueldo base por mes</label><input type="text" placeholder="Sueldo Base" class="input_text" onkeypress="return validarn(event)">
       </div>
       <div>
         <label for="">Ingrese las ventas realizadas en el mes</label><input type="text" placeholder="Ventas realizadas" class="input_text">
@@ -24,5 +24,7 @@
       </div>
     </form>
   </div>
+
+  <script src="./js/funciones2.js"></script>
 </body>
 </html>
