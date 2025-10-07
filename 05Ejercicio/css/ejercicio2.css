@@ -1,0 +1,62 @@
+*{
+  font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif; 
+}
+
+h2{
+  font-size: 2rem;
+  text-align: left;
+  margin-bottom: 0;
+  margin-bottom: 2rem;
+}
+
+body{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #eeeeee;
+}
+
+.input_text{
+  border-radius: 1rem;
+  padding: 0.4rem;
+  width: 10rem;
+  border: solid 1px #b1b1b1;
+}
+
+.boton{
+  background-color: #e1e1e1;
+  width: 11rem;
+  display: flex;
+  align-items: center;
+  padding: 0.4rem;
+  color: black;
+  border-radius: 20px;
+  border: none;
+  cursor: pointer;
+}
+
+.boton:hover{
+  background-color: #3B82F6;
+  color: white;
+}
+
+.contendor-formulario{
+  background-color: white;
+  padding: 6rem;
+  margin-top: 5rem;
+  border-radius: 1rem;
+  width: 30rem;
+}
+
+form{
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+form div{
+  display: flex;
+  flex-direction: row;
+  gap: 1rem;
+  align-items: center;
+}
