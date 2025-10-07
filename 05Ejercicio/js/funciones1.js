@@ -11,11 +11,9 @@ function validarn (e){
 function interes(){
   var valor = document.getElementById("cantidadi").value;
   var parseo = parseFloat(valor);
-  alert(parseo)
+  if(parseo < 100 || parseo > 1000000000) return alert('Ingrese un valor entre 100 y 10 mil millones'); //validacion de cantidad
   var interes = parseo*0.085; //limite a 2 decimales
-  alert(interes)
   var total  = interes + parseo;
-  alert(total)
   document.getElementById("saldoi").value = "$ " + total; //limite a 2 decimales
 }
 
