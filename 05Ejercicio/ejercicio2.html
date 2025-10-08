@@ -11,16 +11,16 @@
     <h2>Calculo de sueldo con comisiones</h2>
     <form action="">
       <div>
-        <label for="">Ingrese su sueldo base por mes</label><input type="text" placeholder="Sueldo Base" class="input_text" onkeypress="return validarn(event)">
+        <label for="">Ingrese su sueldo base por mes</label><input type="text" placeholder="Sueldo Base" id="sueldo" class="input_text" onkeypress="return validarn(event)">
       </div>
       <div>
-        <label for="">Ingrese las ventas realizadas en el mes</label><input type="text" placeholder="Ventas realizadas" class="input_text">
+        <label for="">Ingrese las ventas realizadas en el mes</label><input type="text" placeholder="Ventas realizadas" class="input_text" id="nventas" onkeypress="return validarn(event)">
       </div>
       <div>
-        <input type="button" value="Calcular Sueldo" class="boton"><input type="button" value="Borrar Datos" class="boton">
+        <input type="button" value="Calcular Sueldo" class="boton" onclick="comision()"><input type="button" value="Borrar Datos" class="boton" onclick="borrarCampos()">
       </div>
       <div>
-        <label for="">Sueldo total:</label><input type="text" readonly="readonly" class="input_text" style="background-color: none; border: none;">
+        <label for="">Sueldo total:</label><input type="text" readonly="readonly" class="input_text" style="background-color: none; border: none;" id="sueldoTotal">
       </div>
     </form>
   </div>
