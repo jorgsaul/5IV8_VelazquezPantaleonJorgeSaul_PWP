@@ -17,7 +17,7 @@ function comision(){
   if (sueldoFloat < 300 || sueldoFloat > 50000) return alert('Ingrese un sueldo entre 300 y 500 mil pesos')  
   if(ventasInt < 1 || ventasInt > 200) return alert('El sistema solo admite hasta 200 ventas')
   var resultado = sueldoFloat + sueldoFloat * (ventasInt * .10);
-  document.getElementById('sueldoTotal').value = `$ ${resultado.toFixed(2)}`;
+  document.getElementById('sueldoTotal').value = `$ ${resultado.toFixed(2)}`; //limitar a 2 decimales
 }
 
 
