@@ -33,3 +33,12 @@ function calificacion(){
   document.getElementById('calificacionFinal').value = resultado
 
 }
+
+function borrarCampos(){
+  document.getElementById("parcial3").value = "";
+  document.getElementById("parcial2").value = "";
+  document.getElementById('parcial1').value = "";
+  document.getElementById("examen").value = "";
+  document.getElementById("proyecto").value = "";
+  document.getElementById('calificacionFinal').value = "";
+}
