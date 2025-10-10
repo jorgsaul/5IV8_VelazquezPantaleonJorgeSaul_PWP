@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ejercicio Edad</title>
+  <link rel="stylesheet" href="./css/ejercicio2.css">
+</head>
+<body>
+  <div class="contendor-formulario">
+    <h2>Cálculo de Edad</h2>
+    <form action="">
+      <div>
+        <label for="">Ingrese su fecha de nacimiento</label>
+        <input type="date" class="input_text" id="fechaNacimiento">
+      </div>
+      <div>
+        <input type="button" value="Calcular Edad" class="boton" onclick="calcularEdad()">
+        <input type="button" value="Borrar Datos" class="boton" onclick="borrarCampos()">
+      </div>
+      <div>
+        <label for="">Edad:</label>
+        <input type="text" readonly="readonly" class="input_text" id="edadCalculada" style="background-color: none; border: none;">
+      </div>
+    </form>
+  </div>
+
+  <script src="./js/funciones6.js"></script>
+</body>
+</html>
