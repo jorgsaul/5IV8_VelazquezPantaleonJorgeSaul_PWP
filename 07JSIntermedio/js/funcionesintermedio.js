@@ -28,11 +28,24 @@ function funcionHoras(){
   const horas = parseFloat(document.getElementById("p1-input").value);
   const sueldoPorHora = 16;
   let resultado = 0;
-  if(!horas) alert("Por favor ingresa las horas trabajadas");
-  if(horas <= 40) alert('Menos de 40 horas trabajadas, no hay horas extras');
+  if(!horas) alert("Por favor ingresa las horas trabajadas"); //validacion de que se ingrese un valor
+  if(horas <= 40) alert('Menos de 40 horas trabajadas, no hay horas extras'); //validacion de que no se ingresen horas menores o iguales a 40
   if(horas > 40) resultado = operacionNumeros(horas - 40, sueldoPorHora, "multiplicacion") * 2 + (40 * sueldoPorHora);
   if(horas > 48) resultado = operacionNumeros(horas - 48, sueldoPorHora, "multiplicacion") * 3 + (8 * sueldoPorHora * 2) + (40 * sueldoPorHora);
   document.getElementById('p2-output').textContent = resultado.toString();
+}
+
+function utilidadTrabajador(){
+  const años = parseFloat(document.getElementById("p3-input").value);
+  let porcentaje = 0;
+  if(!años) alert("Por favor ingresa los años trabajados"); //validacion de que se ingrese un valor
+  if(años < 0) alert("Los años no pueden ser negativos"); //validacion de años negativos
+  if(años < 1) porcentaje = 5;
+  if(años >= 1 && años < 2) porcentaje = 7;
+  if(años >= 2 && años < 5) porcentaje = 10;
+  if(años >= 5 && años < 10) porcentaje = 15;
+  if(años >= 10) porcentaje = 20;
+  document.getElementById('p3-output').textContent = `El trabajador recibira el ${porcentaje}% de utilidad`;
 }
 /*
 function suma(n1, n2){
