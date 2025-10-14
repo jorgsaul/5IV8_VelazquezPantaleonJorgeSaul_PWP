@@ -1,3 +1,39 @@
+const operacionNumeros = (numero1, numero2, operacion) => {
+  switch(operacion){
+    case "suma":
+      return numero1 + numero2;
+    case "resta":
+      return numero1 - numero2;
+    case "multiplicacion":
+      return numero1 * numero2;
+    case "division":
+      return numero1 / numero2;
+  }
+}
+
+function funcionNumeros(){
+  const numero1 = parseFloat(document.getElementById("numero1-input").value);
+  const numero2 = parseFloat(document.getElementById("numero2-input").value);
+  let resultado = 0;
+  if(!numero1 || !numero2) alert("Por favor ingresa ambos numeros");
+  if(numero1 === numero2) resultado = operacionNumeros(numero1, numero2, "multiplicacion");
+  if(numero1 > numero2) resultado = operacionNumeros(numero1, numero2, "resta");
+  if(numero1 < numero2) resultado = operacionNumeros(numero1, numero2, "suma");
+  const arreglo = [numero1, numero2, resultado].sort().reverse();
+  document.getElementById('p1-output').textContent = resultado.toString();
+  console.log(arreglo[0]);
+}
+
+function funcionHoras(){
+  const horas = parseFloat(document.getElementById("p1-input").value);
+  const sueldoPorHora = 16;
+  let resultado = 0;
+  if(!horas) alert("Por favor ingresa las horas trabajadas");
+  if(horas <= 40) alert('Menos de 40 horas trabajadas, no hay horas extras');
+  if(horas > 40) resultado = operacionNumeros(horas - 40, sueldoPorHora, "multiplicacion") * 2 + (40 * sueldoPorHora);
+  if(horas > 48) resultado = operacionNumeros(horas - 48, sueldoPorHora, "multiplicacion") * 3 + (8 * sueldoPorHora * 2) + (40 * sueldoPorHora);
+  document.getElementById('p2-output').textContent = resultado.toString();
+}
 /*
 function suma(n1, n2){
   return n1 + n2;
@@ -9,7 +45,7 @@ console.log(`Qee rollo ${suma(5,4)}`)
 /*
 const suma = (n1,n2) => n1 + n2;
 console.log(`Qee rollo ${suma(5,4)}`)
-*/
+
 
 const razasDePerros = [
   "Pastor aleman",
@@ -57,7 +93,7 @@ if(razasDePerros.find(raza => raza === "Chihuahua")){
   razasDePerros.push("Chihuahua");
   console.log(razasDePerros)
 }
-  */
+
 
 //Find Index => nos permmite realizar unabusqueda de un elemento de un elemento dentro de un arreglo, si l encuetra, regresa el indice del elemento, sino regresa un -1, esta funcion es particularmente util cuando necesitas modificar o eliminar un elemento de un arreglo original, dentro de una copia del mismo
 const indiceChiwawa = razasDePerros.findIndex(raza => raza === "Chihuahua");
@@ -69,3 +105,5 @@ if(indiceChiwawa > -1){
   console.log(razasDePerros[indiceChiwawa]);
   console.log(razasDePerros)
 }
+
+*/
