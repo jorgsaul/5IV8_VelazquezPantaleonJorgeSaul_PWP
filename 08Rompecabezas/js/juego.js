@@ -67,12 +67,12 @@ function mostrarCartelGanador() {
 */
 
 function intercambiarPosicionesRomepecabezas(filaPos1, columnaPos1, filaPos2, columnaPos2) {
-  var pos1 = rompe[filaPos1, columnaPos1];
-  var pos2 = rompe[filaPos2, columnaPos2];
+  var pos1 = rompe[filaPos1][columnaPos1];
+  var pos2 = rompe[filaPos2][columnaPos2];
 
   //intercambio
-  rompe[filaPos1, columnaPos1] = pos2;
-  rompe[filaPos2, columnaPos2] = pos1;
+  rompe[filaPos1][columnaPos1] = pos2;
+  rompe[filaPos2][columnaPos2] = pos1;
 }
 
 //funcion que se encargue de saber donde esta la pieza vacia
@@ -113,6 +113,8 @@ function moverEnDireccion(direccion){
   }else if(direccion === codigosDireccion.IZQUIERDA){
     nuevaFilaPiezaVacia = filaVacia;
     nuevaColumnaPiezaVacia = columnaVacia - 1;
+  }else{
+    return false;
   }
 
   //solo mando a llamar a que la posicion sea valida
@@ -122,30 +124,33 @@ function moverEnDireccion(direccion){
     actualizarPosicionVacia(nuevaFilaPiezaVacia, nuevaColumnaPiezaVacia);
     //tengo que guardar el ultimo movimiento
     agregarUltimoMovimiento(direccion);
+  }else{
+    return true
   }
 }
 
 function intercambiarPosiciones(fila1, columna1, fila2, columna2) {
-  var pieza1 = rompe[fila1, columna1];
-  var pieza2 = rompe[fila2, columna2];
+  var pieza1 = rompe[fila1][columna1];
+  var pieza2 = rompe[fila2][columna2];
   //intercambio ya debe de ser por parte de los frames y el html
   intercambiarPosicionesRomepecabezas(fila1, columna1, fila2, columna2);
-  intercambiarPosicionesDOM('pieza'+pieza1[fila1, columna1], 'pieza'+pieza2[fila2, columna2])
+  intercambiarPosicionesDOM('pieza'+pieza1, 'pieza'+pieza2)
 }
 
 function intercambiarPosicionesDOM(idPieza1, idPieza2){
-  var pieza1 = document.getElementById(idPieza1.toString())
-  var pieza2 = document.getElementById(idPieza2.toString())
-  console.log(pieza1)
-  var elementoPieza1 = pieza1.parentNode;
-  var elementoPieza2 = pieza2.parentNode;
-  var cloneElemento1 = elementoPieza1.cloneNode(true);
-  var cloneElemento2 = elementoPieza2.cloneNode(true);
+  var pieza1 = document.getElementById(idPieza1);
+  var pieza2 = document.getElementById(idPieza2);
 
-  //reempelzar a los planes con sus clones
-  padre.replaceChild(cloneElemento1,  elementoPieza2);
-  padre.replaceChild(cloneElemento2,  elementoPieza1);
+  var padre1 = pieza1.parentNode;
+  var padre2 = pieza2.parentNode;
+
+  var siguiente1 = pieza1.nextSibling;
+  var siguiente2 = pieza2.nextSibling;
+
+  padre1.insertBefore(pieza2, siguiente1);
+  padre2.insertBefore(pieza1, siguiente2);
 }
+
 
 //funcion para actualizar las movimientos en el DOM
 function actualizarUltimoMovimiento(direccion){
@@ -169,16 +174,20 @@ function actualizarUltimoMovimiento(direccion){
 //necesitamos mezclar todas las piezas
 function mezclasPiezas(veces){
   if(veces <= 0){
-    return alert('Asi no se puede')
+    return 
   }
 
   var direcciones = [codigosDireccion.ABAJO, codigosDireccion.ARRIBA, codigosDireccion.DERECHA, codigosDireccion.IZQUIERDA]
   var direccion = direcciones[Math.floor(Math.random() * direcciones.length)]
 
-  moverEnDireccion(direccion)
+  var movido = moverEnDireccion(direccion)
 
   setTimeout(function(){
-    mezclasPiezas(veces - 1 )
+    if(movido){
+      mezclasPiezas(veces - 1)
+    }else{
+      mezclasPiezas(veces)
+    }
   }, 100);
 }
 
@@ -198,6 +207,12 @@ function capturarTeclas(){
     }
   });
 }
+
+function agregarUltimoMovimiento(direccion) {
+  actualizarUltimoMovimiento(direccion);
+  moviminetos.push(direccion);
+}
+
 
 function iniciar() {
   //mezclas las piezas del rompecabezas
