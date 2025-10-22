@@ -130,6 +130,30 @@ function capturarTeclas(){
   });
 }
 
+var movimientos = [];
+function agregarUltimoMovimiento(direccion) {
+  actualizarUltimoMovimiento(direccion);
+  movimientos.push(direccion);
+}
+
+function actualizarUltimoMovimiento(direccion){
+  var ultimoMovimiento = document.getElementById('flecha');
+  switch(direccion){
+    case codigosDireccion.ARRIBA:
+      ultimoMovimiento.textContent = "↑"
+      break;
+    case codigosDireccion.ABAJO:
+      ultimoMovimiento.textContent = "↓";
+      break
+    case codigosDireccion.IZQUIERDA:
+      ultimoMovimiento.textContent = "←"
+      break;
+    case codigosDireccion.DERECHA:
+      ultimoMovimiento.textContent = "→";
+      break
+  }
+}
+
 function iniciar() {
   //mezclas las piezas del rompecabezas
   capturarTeclas();
