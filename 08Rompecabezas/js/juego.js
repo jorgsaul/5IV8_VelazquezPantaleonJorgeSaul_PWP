@@ -5,7 +5,7 @@ var instrucciones = [
 ];
 
 //vamos a guardar dentro de una variable los movimientos del rompecabezas
-var moviminetos = [];
+var movimientos = [];
 //vamos a crear una matriz para saber las posiciones del rompecabezas
 var rompe = [
   [1, 2, 3],
@@ -210,7 +210,7 @@ function capturarTeclas(){
 
 function agregarUltimoMovimiento(direccion) {
   actualizarUltimoMovimiento(direccion);
-  moviminetos.push(direccion);
+  movimientos.push(direccion);
 }
 
 
