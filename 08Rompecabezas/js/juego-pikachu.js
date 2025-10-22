@@ -173,6 +173,31 @@ function mezclasPiezas(veces){
   }, 100);
 }
 
+var rompeCorrecta = [
+  [1, 2, 3],
+  [4, 5, 6],
+  [7, 8, 9]
+];
+
+function mostrarCartelGanador() {
+  if(checarSiGano()) {
+    alert("¡Ganaste!");
+  }
+  return false
+}
+
+function checarSiGano() {
+  for (var i = 0; i < rompe.length; i++) {
+    for (var j = 0; j < rompe[i].length; j++) {
+      var rompeActual = rompe[i][j];
+      if(rompeActual !== rompeCorrecta[i][j]) {
+        return false;
+      }
+    }
+  }
+  return true;
+}
+
 function iniciar() {
   //mezclas las piezas del rompecabezas
   mezclasPiezas(30)
