@@ -154,8 +154,28 @@ function actualizarUltimoMovimiento(direccion){
   }
 }
 
+function mezclasPiezas(veces){
+  if(veces <= 0){
+    return 
+  }
+
+  var direcciones = [codigosDireccion.ABAJO, codigosDireccion.ARRIBA, codigosDireccion.DERECHA, codigosDireccion.IZQUIERDA]
+  var direccion = direcciones[Math.floor(Math.random() * direcciones.length)]
+
+  var movido = moverEnDireccion(direccion)
+
+  setTimeout(function(){
+    if(movido){
+      mezclasPiezas(veces - 1)
+    }else{
+      mezclasPiezas(veces)
+    }
+  }, 100);
+}
+
 function iniciar() {
   //mezclas las piezas del rompecabezas
+  mezclasPiezas(30)
   capturarTeclas();
   //capturar el ultimo moviimiento
 
