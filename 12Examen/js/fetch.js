@@ -28,8 +28,10 @@ async function obtenerZombie(nombre) {
 }
 
 async function obtenerPersonaje() {
+  await sugerencias();
   currentType = null;
   const personaje = document.getElementById("busqueda").value.trim();
+  if(personaje === "") return alert('Ingrese el nombre de un personaje');
   showLoading();
   try {
     const planta = await obtenerPlanta(personaje);
