@@ -1,5 +1,5 @@
 # Node.js
-node_modules/         # Depende de las librerías que has instalado con npm
+node_modules         # Depende de las librerías que has instalado con npm
 npm-debug.log         # Archivos de error de npm
 yarn-error.log        # Archivos de error si usas Yarn
 
