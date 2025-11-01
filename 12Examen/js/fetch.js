@@ -6,10 +6,10 @@ const card = document.getElementById("contenedor");
 
 let currentType = null;
 
-const imageTemplate = (imgSrc) => `<img src='${BASE_URL}${imgSrc}' alt='imagenDelPersonaje' />`;
+const imageTemplate = (imgSrc) => `<img src='${imgSrc}' alt='imagenDelPersonaje' />`;
 const cardTemplate = (objeto) => `
   <div class="stats">
-    ${Object.keys(objeto).map(key =>`<p>${key}: ${objeto[key]}</p>`).join('')}
+    ${Object.keys(objeto).map(key =>`<p><strong>${key}</strong>: ${objeto[key]}</p>`).join('')}
   </div>
 `
 
@@ -30,6 +30,7 @@ async function obtenerZombie(nombre) {
 async function obtenerPersonaje() {
   currentType = null;
   const personaje = document.getElementById("busqueda").value.trim();
+  showLoading();
   try {
     const planta = await obtenerPlanta(personaje);
     currentType = "planta";
@@ -40,23 +41,31 @@ async function obtenerPersonaje() {
       currentType = "zombie";
       colocarDatos(zombie);
     } catch {
-      console.log('❌ No se encontró el personaje');
+      colocarDatos({name: "No se encontró el personaje", image: "./img/notfound.jpeg", state:"404"});
     }
   }
-
   cambiarFondo(currentType);
 }
 
 function colocarDatos(personaje){
-  console.log(personaje);
+  const { image, ...personajeSinImagen} = personaje;
   card.innerHTML = "";
-  card.insertAdjacentHTML("beforeend", imageTemplate(personaje.image));
-  card.insertAdjacentHTML("beforeend", cardTemplate(personaje));
+  card.insertAdjacentHTML("beforeend", imageTemplate(personaje.state === "404" ? "./img/notfound.jpeg" : BASE_URL + personaje.image));
+  card.insertAdjacentHTML("beforeend", cardTemplate(personajeSinImagen));
 }
+function showLoading() {
+  card.innerHTML = "";
+  card.insertAdjacentHTML("beforeend", imageTemplate("./img/loading.gif"));
+  card.insertAdjacentHTML("beforeend", `<div class="stats"><p>Cargando...</p></div>`);
+  card.className = "card";
+}
+
 function cambiarFondo(currentType){
   if(currentType === "planta"){
     card.className = "card planta";
   }else if(currentType === "zombie"){
     card.className = "card zombie";
+  }else{
+    card.className = "card";
   }
 }
