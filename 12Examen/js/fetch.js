@@ -1,69 +1,62 @@
 const proxy = "https://cors-anywhere.herokuapp.com/";
 const API_URL_PLANTS = proxy + "https://pvz-2-api.vercel.app/api/plants/";
 const API_URL_ZOMBIES = proxy + "https://pvz-2-api.vercel.app/api/zombies/";
-
-const statsPlant = {
-  cost: 0,
-  recharge: 0,
-  damage: 0,
-  toughness: 0,
-  powerUp: 0,
-  family: 0,
-  description: 0,
-  image: 0
-};
-const statsZombie = {
-  toughness: 0,
-  speed: 0,
-  description: 0,
-  image: 0,
-}
+const BASE_URL = "https://pvz-2-api.vercel.app";
+const card = document.getElementById("contenedor");
 
 let currentType = null;
 
-const imageTemplate = "<img src='{imgSrc}' alt='imagenDelPersonaje' />";
-const statsTemplate = (personaje, tipo) => `
-  <div class="stats ${tipo === "planta" ? "planta" : "zombie"}">
-    ${tipo === "planta" ? `
-      <p>Coste: ${personaje.cost}</p>
-      <p>Recarga: ${personaje.recharge}</p>
-      <p>Daño: ${personaje.damage}</p>
-      <p>Toughness: ${personaje.toughness}</p>
-      <p>Power Up: ${personaje.powerUp}</p>
-      <p>Familia: ${personaje.family}</p>
-    ` : `
-      <p>Toughness: ${personaje.toughness}</p>
-      <p>Velocidad: ${personaje.speed}</p>
-    `}
-    <p>Descripción: ${personaje.description}</p>
+const imageTemplate = (imgSrc) => `<img src='${BASE_URL}${imgSrc}' alt='imagenDelPersonaje' />`;
+const cardTemplate = (objeto) => `
+  <div class="stats">
+    ${Object.keys(objeto).map(key =>`<p>${key}: ${objeto[key]}</p>`).join('')}
   </div>
-`;
-
-const containers = {
-  imagenContainer: document.getElementById("pokedisplay-container"),
-  dataContainer: document.getElementById("dataContainer")
-};
+`
 
 async function obtenerPlanta(nombre) {
-  try {
-    const response = await fetch(`${API_URL_PLANTS}${nombre}`);
-    const data = await response.json();
-    return data;
-  } catch (error) {
-    console.error(error);
-  }
+  const response = await fetch(`${API_URL_PLANTS}${nombre}`);
+  if (!response.ok) throw new Error('No se encontró la planta');
+  const data = await response.json();
+  return data;
 }
 
 async function obtenerZombie(nombre) {
-  try {
-    const response = await fetch(`${API_URL_ZOMBIES}${nombre}`);
-    const data = await response.json();
-    return data;
-  } catch (error) {
-    console.error(error);
-  }
+  const response = await fetch(`${API_URL_ZOMBIES}${nombre}`);
+  if (!response.ok) throw new Error('No se encontró el zombie');
+  const data = await response.json();
+  return data;
 }
-async function obtenerPersonaje(){
+
+async function obtenerPersonaje() {
+  currentType = null;
   const personaje = document.getElementById("busqueda").value.trim();
-  console.log(personaje)
+  try {
+    const planta = await obtenerPlanta(personaje);
+    currentType = "planta";
+    colocarDatos(planta);
+  } catch {
+    try {
+      const zombie = await obtenerZombie(personaje);
+      currentType = "zombie";
+      colocarDatos(zombie);
+    } catch {
+      console.log('❌ No se encontró el personaje');
+    }
+  }
+
+  cambiarFondo(currentType);
+}
+
+function colocarDatos(personaje){
+  console.log(personaje);
+  card.innerHTML = "";
+  card.insertAdjacentHTML("beforeend", imageTemplate(personaje.image));
+  card.insertAdjacentHTML("beforeend", cardTemplate(personaje));
+}
+function cambiarFondo(currentType){
+  if(currentType === "planta"){
+    card.className = "card planta";
+  }else if(currentType === "zombie"){
+    card.className = "card zombie";
+  }
 }

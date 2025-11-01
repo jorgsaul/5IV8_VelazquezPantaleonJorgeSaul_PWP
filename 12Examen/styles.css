@@ -1,7 +1,8 @@
+/* --- ESTILOS GENERALES --- */
 body {
   font-family: 'Comic Sans MS', sans-serif;
   text-align: center;
-  background: #d0f0c0;
+  background: #333;
   color: #333;
   margin: 0;
   padding: 20px;
@@ -9,24 +10,28 @@ body {
 
 h1 {
   margin-bottom: 20px;
-  color: #2e7d32;
+  color: #f3f3f3;
 }
 
 .busqueda input {
   padding: 8px;
   border-radius: 5px;
   width: 200px;
-  border: 2px solid #2e7d32;
+  border: 2px solid #aaa;
+  background-color: #fff;
+  color: #333;
 }
 
-.busqueda button {
-  padding: 8px 12px;
-  margin-left: 5px;
-  border-radius: 5px;
-  border: none;
-  cursor: pointer;
-  background-color: #4caf50;
-  color: white;
+.busqueda input:focus {
+  outline: none;
+  border-color: #777;
+}
+
+.busqueda button:hover,
+.navegacion button:hover {
+  background-color: #d5d5d5;
+  border-color: #888;
+  transform: scale(1.05);
 }
 
 .card {
@@ -35,7 +40,12 @@ h1 {
   width: 320px;
   margin: 20px auto;
   box-shadow: 0 5px 15px rgba(0,0,0,0.3);
-  transition: background 0.3s;
+  background: #ffffff;
+  transition: background 0.4s, transform 0.2s, border 0.4s;
+}
+
+.card:hover {
+  transform: scale(1.02);
 }
 
 .card img {
@@ -52,24 +62,18 @@ h1 {
 
 .stats p {
   margin: 5px 0;
-  font-weight: bold;
 }
 
-.navegacion button {
-  padding: 10px 20px;
-  margin: 10px;
-  border-radius: 10px;
-  border: none;
-  background-color: #81c784;
-  color: white;
-  font-weight: bold;
-  cursor: pointer;
+.card.planta {
+  background: #c8e6c9;
+  border: 3px solid #2e7d32;
+  box-shadow: 0 5px 15px rgba(46, 125, 50, 0.4);
+  min-height: 10rem;
 }
 
-.planta {
-  background: #a5d6a7;
-}
-
-.zombie {
-  background: #ce93d8;
+.card.zombie {
+  background: #e1bee7;
+  border: 3px solid #6a1b9a;
+  box-shadow: 0 5px 15px rgba(106, 27, 154, 0.4);
+  min-height: 10rem;
 }
