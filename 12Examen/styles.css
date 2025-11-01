@@ -7,6 +7,17 @@ body {
   padding: 20px;
 }
 
+button{
+  width: 80px;
+  height: 35px;
+  border-radius: 100px;
+  border: 1px solid #aaa;
+  background-color: #fff;
+  color: #333;
+  cursor: pointer;
+  transition: background 0.4s, transform 0.2s, border 0.4s;
+}
+
 h1 {
   margin-bottom: 20px;
   color: #f3f3f3;
@@ -15,10 +26,12 @@ h1 {
 .busqueda input {
   padding: 8px;
   border-radius: 5px;
-  width: 200px;
-  border: 2px solid #aaa;
+  width: 250px;
+  border: 1px solid #aaa;
+  border-radius: 100px;
   background-color: #fff;
   color: #333;
+  padding: 10px;
 }
 
 .busqueda input:focus {
