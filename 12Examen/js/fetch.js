@@ -4,6 +4,8 @@ const API_URL_ZOMBIES = proxy + "https://pvz-2-api.vercel.app/api/zombies/";
 const BASE_URL = "https://pvz-2-api.vercel.app";
 const card = document.getElementById("contenedor");
 
+//Profe no sabia que tenia que hacer lo de el cache y me sale too many request espero a usted si le sirva. Antes de que me saliera el aviso si funcionaba. 
+
 let currentType = null;
 
 const imageTemplate = (imgSrc) => `<img src='${imgSrc}' alt='imagenDelPersonaje' />`;
@@ -26,7 +28,6 @@ async function obtenerZombie(nombre) {
   const data = await response.json();
   return data;
 }
-
 async function obtenerPersonaje() {
   currentType = null;
   const personaje = document.getElementById("busqueda").value.trim().toLowerCase();
