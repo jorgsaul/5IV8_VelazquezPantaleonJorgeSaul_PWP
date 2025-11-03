@@ -8,17 +8,21 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Mulish:ital,wght@0,200..1000;1,200..1000&display=swap" rel="stylesheet">
+  <script src="./js/api.js"></script>
 </head>
 <body>
   <div class="contenedor-principal">
     <h1>Bola de la suerte</h1>
     <div class="card">
-      <input type="text" id="pregunta" class="input_text" placeholder="Pregunta algo a la bola">
+      <input type="text" id="pregunta" class="input_text" placeholder="Pregunta algo a la bola" autofocus autocomplete="off" maxlength="100">
       <div class="contenedor-botones">
          <input type="button" value="Enviar" class="boton" onclick="preguntar()"><input type="button" value="Borrar Datos" class="boton" onclick="borrarCampos()">
       </div>
       <div>
-        <input type="text" readonly="readonly"style="background-color: transparent; border: none;" id="respuesta">
+        <input type="text" readonly="readonly"style="background-color: transparent; border: none; color: #fff; text-align: center; width: 20rem;" class="input_text" id="respuesta">
+      </div>
+      <div>
+        <a href="../index.html">Regresar</a> | <a href="https://www.eightballapi.com/">Api de referencia</a>
       </div>
     </div>
   </div>
