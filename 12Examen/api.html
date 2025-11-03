@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Api de Examen</title>
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body>
+  <div class="contenedor-principal">
+    <h1>Bola de la suerte</h1>
+    <div class="card">
+      <input type="text" id="pregunta" class="input_text" placeholder="Pregunta algo a la bola">
+      <div class="contenedor-botones">
+         <input type="button" value="Enviar" class="boton" onclick="preguntar()"><input type="button" value="Borrar Datos" class="boton" onclick="borrarCampos()">
+      </div>
+      <div>
+        <input type="text" readonly="readonly"style="background-color: transparent; border: none;" id="respuesta">
+      </div>
+    </div>
+  </div>
+</body>
+</html>
