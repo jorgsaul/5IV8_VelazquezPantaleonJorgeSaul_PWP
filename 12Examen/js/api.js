@@ -39,6 +39,7 @@ async function preguntar(){
     const respuesta = data.reading;
     document.getElementById('respuesta').value = respuesta;
   } catch (error) {
+    alert('Error en la api, prueba activando la cors en el link de abajo')
     console.log(error);
   }
 }
