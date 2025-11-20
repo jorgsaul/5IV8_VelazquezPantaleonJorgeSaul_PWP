@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Registro de estudiantes</title>
+</head>
+<body>
+  <h1>Registro de estudiantes</h1>
+  <form action="/estudiantes" method="POST">
+    <label for="nombre">Nombre: <input type="text" name="nombre" id="nombre" required></label>
+    <label for="edad">Edad: <input type="number" name="edad" id="edad" required></label>
+    <label for="curso">Curso: <input type="text" name="curso" id="curso"></label>
+    <button type="submit">Registrar estudiante</button>
+  </form>
+
+  <ul>
+    <% estudiantes.forEach( function(estudiante) => { %>
+      <li>Nombre: <%= estudiante.nombre %>, Edad: <%= estudiante.edad %>, Curso: <%= estudiante.curso %>
+      <a href="/estudiantes/editar/<%= estudiante.id %>">Editar</a>
+      <a href="/estudiantes/eliminar/<%= estudiante.id %>"></a></li>
+    })%>
+  </ul>
+</body>
+</html>

@@ -1,0 +1,47 @@
+# Node.js
+node_modules/         # Depende de las librerías que has instalado con npm
+npm-debug.log         # Archivos de error de npm
+yarn-error.log        # Archivos de error si usas Yarn
+
+# Jekyll
+_site/                # Carpeta donde Jekyll genera el sitio estático
+.jekyll-metadata      # Archivos de metadatos de Jekyll
+
+# Visual Studio Code
+.vscode/              # Configuración específica del editor (si usas VSCode)
+
+# Dependencias globales de npm
+package-lock.json     # Puede ser ignorado si no es estrictamente necesario
+yarn.lock             # Si usas Yarn, no lo subas
+
+# Archivos de entorno y claves secretas
+.env                  # Archivo de variables de entorno (contiene claves sensibles)
+
+# Archivos del sistema operativo
+.DS_Store             # Archivos específicos de macOS
+Thumbs.db             # Archivos específicos de Windows
+
+# Archivos de log
+*.log                 # Archivos de log generados por el sistema o el proyecto
+
+# Archivos de Docker
+*.dockerfile          # Si usas Docker, no necesitas subir los Dockerfiles generados
+docker-compose.override.yml   # Si tienes una configuración de docker-compose personalizada
+
+# Archivos de compilación/temporales
+*.tmp                 # Archivos temporales
+*.swp                 # Archivos temporales de editores como Vim
+*.bak                 # Archivos de respaldo generados por editores de texto
+
+# Archivos específicos de tests
+coverage/             # Carpeta de cobertura de pruebas
+
+# IDEs/Editor de texto
+.idea/                # Archivos generados por JetBrains IDEs (como IntelliJ, WebStorm)
+*.sublime-workspace   # Archivos de workspace de Sublime Text
+*.sublime-project     # Archivos de proyecto de Sublime Text
+
+# Otros
+.env.local            # Variables de entorno locales
+.env.development      # Variables de entorno de desarrollo
+.env.production       # Variables de entorno de producción
