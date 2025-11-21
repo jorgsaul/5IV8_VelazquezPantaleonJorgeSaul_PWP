@@ -7,15 +7,18 @@ const express = require('express')
 const mysql = require('mysql2')
 const bodyParser = require('body-parser')
 const ejs = require('ejs')
+require('dotenv').config({
+  path: './.env'
+})
 
 const app = express();
 const port = 3000;
 
 const bd = mysql.createConnection({
-  host:'localhost',
-  user: 'root',
-  password: 'n0m3l0',
-  database: 'estudiantescecyt'
+  host: process.env.DB_HOST,
+  user: process.env. DB_USER,
+  password: process.env.DB_PASSWORD,
+  database: process.env.DB_NAME
 })
 
 bd.connect((error) => {
@@ -44,11 +47,9 @@ app.get('/', (req, res) => {
     if(error){
       console.log(error)
       res.status(500).send('Error al obtener los estudiantes')
-    }else{
-      res.render('index', {estudiantes: results})
-    }
+    } 
+  res.render('index', {estudiantes: results})
   });
-  res.render('index')
 });
 
 app.post('/estudiantes', (req, res) => {
@@ -58,6 +59,44 @@ app.post('/estudiantes', (req, res) => {
   });
 });
 
+app.get('/estudiantes/delete/:id', (req, res) => {
+  const estudianteid = req.params.id;
+  const query = `DELETE FROM estudiantes WHERE id = ${estudianteid}`;
+  bd.query(query, (error, results) => {
+    if(error){
+      console.log(error)
+      res.status(500).send('Error al eliminar el estudiante')
+    }
+    res.redirect('/');
+  });
+});
+
+
+app.get('/estudiantes/edit/:id', (req, res) => {
+  const estudianteid = req.params.id;
+  const query = `SELECT * FROM estudiantes WHERE id = ${estudianteid}`;
+  bd.query(query, (error, results) => {
+    if(error){
+      console.log(error)
+      res.status(500).send('Error al obtener el estudiante')
+    }else{
+      res.render('edit', {estudiante: results[0]})
+    }
+  });
+})
+
+app.post('/estudiantes/update/:id', (req, res) => {
+  const estudianteid = req.params.id;
+  const { nombre, edad, curso } = req.body;
+  const query = `UPDATE estudiantes SET nombre = '${nombre}', edad = ${edad}, curso = '${curso}' WHERE id = ${estudianteid}`;
+  bd.query(query, (error, results) => {
+    if(error){
+      console.log(error)
+      res.status(500).send('Error al actualizar el estudiante')
+    }
+    res.redirect('/');
+  });
+})
 
 app.listen(port, ()=>{
   console.log(`Sevidor corriendo en http://localhost:${port}`)

@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <h1>Editar estudiante</h1>
+  <form action="/estudiantes/update/<%= estudiante.id %>" method="POST">
+    <label for="nombre">Nombre: <input type="text" name="nombre" id="nombre" value="<%= estudiante.nombre %>" required></label>
+    <label for="edad">Edad: <input type="number" name="edad" id="edad" value="<%= estudiante.edad %>" required></label>
+    <label for="curso">Curso: <input type="text" name="curso" id="curso" value="<%= estudiante.curso %>"></label>
+    <button type="submit">Actualizar datos</button>
+  </form>
+</body>
+</html>
