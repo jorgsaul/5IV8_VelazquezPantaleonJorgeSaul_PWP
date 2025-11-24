@@ -3,9 +3,62 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>Reportes de averias</title>
+  <script>
+    /*
+    CREATE TABLE averias (
+      id INT AUTO_INCREMENT PRIMARY KEY,
+      equipo_id VARCHAR(50) NOT NULL,
+      fecha_reporte DATETIME DEFAULT CURRENT_TIMESTAMP,
+      sintoma TEXT NOT NULL,
+      diagnostico TEXT,
+      accion_correctiva TEXT,
+      piezas_reemplazadas TEXT,
+      tiempo_inactividad TIME,
+      tecnico_responsable VARCHAR(100)
+  );
+
+    */
+  </script>
 </head>
-<body>
-  
+<body >
+  <div class="container">
+    <h1>Reportes de averias</h1>
+    <a href="/averias/nueva" class="btn">Nuevo Reporte</a>
+    <a href="/averias/editar" class="btn">Editar Reporte</a>
+
+    <div class="lista">
+      <table>
+        <thead>
+          <tr>
+            <th>Equipo</th>
+            <th>Fecha Reporte</th>
+            <th>Sintoma</th>
+            <th>Diagnostico</th>
+            <th>Accion Correctiva</th>
+            <th>Piezas Reemplazadas</th>
+            <th>Tiempo Inactividad</th>
+            <th>Tecnico Responsable</th>
+            <th>Eliminar</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% averias.forEach(function(averia) { %>
+            <tr>
+              <td><%= averia.equipo_id %></td>
+              <td><%= averia.fecha_reporte %></td>
+              <td><%= averia.sintoma %></td>
+              <td><%= averia.diagnostico %></td>
+              <td><%= averia.accion_correctiva %></td>
+              <td><%= averia.piezas_reemplazadas %></td>
+              <td><%= averia.tiempo_inactividad %></td>
+              <td><%= averia.tecnico_responsable %></td>
+              <td><a href="/averias/eliminar/<%= averia.id %>" class="btn">Eliminar</a></td>
+            </tr>
+          <% }) %>
+        </tbody>
+      </table>
+    </div>
+  </div>
 </body>
 </html>
