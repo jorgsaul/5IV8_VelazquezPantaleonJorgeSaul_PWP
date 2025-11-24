@@ -4,28 +4,11 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Reportes de averias</title>
-  <script>
-    /*
-    CREATE TABLE averias (
-      id INT AUTO_INCREMENT PRIMARY KEY,
-      equipo_id VARCHAR(50) NOT NULL,
-      fecha_reporte DATETIME DEFAULT CURRENT_TIMESTAMP,
-      sintoma TEXT NOT NULL,
-      diagnostico TEXT,
-      accion_correctiva TEXT,
-      piezas_reemplazadas TEXT,
-      tiempo_inactividad TIME,
-      tecnico_responsable VARCHAR(100)
-  );
-
-    */
-  </script>
 </head>
 <body >
   <div class="container">
     <h1>Reportes de averias</h1>
     <a href="/averias/nueva" class="btn">Nuevo Reporte</a>
-    <a href="/averias/editar" class="btn">Editar Reporte</a>
 
     <div class="lista">
       <table>
@@ -39,7 +22,7 @@
             <th>Piezas Reemplazadas</th>
             <th>Tiempo Inactividad</th>
             <th>Tecnico Responsable</th>
-            <th>Eliminar</th>
+            <th>Eliminar / Editar</th>
           </tr>
         </thead>
         <tbody>
@@ -53,7 +36,7 @@
               <td><%= averia.piezas_reemplazadas %></td>
               <td><%= averia.tiempo_inactividad %></td>
               <td><%= averia.tecnico_responsable %></td>
-              <td><a href="/averias/eliminar/<%= averia.id %>" class="btn">Eliminar</a></td>
+              <td><a href="/averias/eliminar/<%= averia.id %>" class="btn" >Eliminar</a> <a href="/averias/editar/<%= averia.id %>" class="btn">Editar</a></td>
             </tr>
           <% }) %>
         </tbody>
