@@ -3,11 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <title>Nueva Averia</title>
+  <link rel="stylesheet" href="/css/nueva-averia.css">
 </head>
 <body>
+  <h1>Nueva Averia</h1>
   <form action="/nueva-averia" method="POST">
-    <div class="contenedor-formulario" style="display: flex; flex-direction: column;">
+    <div class="contenedor-formulario">
       <label for="equipo_id">Equipo: <input type="text" name="equipo_id" id="equipo_id" required></label>
       <label for="sintoma">Sintoma: <input type="text" name="sintoma" id="sintoma" required></label>
       <label for="diagnostico">Diagnostico: <input type="text" name="diagnostico" id="diagnostico" required></label>
@@ -16,6 +18,7 @@
       <label for="tiempo_inactividad">Tiempo Inactividad: <input type="time" name="tiempo_inactividad" id="tiempo_inactividad" required></label>
       <label for="tecnico_responsable">Tecnico Responsable: <input type="text" name="tecnico_responsable" id="tecnico_responsable" required></label>
       <input type="submit" value="Guardar">
+      <button onclick="window.location.href = '/';">Regresar</button>
     </div>
   </form>
 </body>

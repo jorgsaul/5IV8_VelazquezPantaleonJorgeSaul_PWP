@@ -14,7 +14,7 @@ app.set('view engine', 'ejs');
 
 app.set('views', __dirname + '/views');
 
-app.use(express.static(__dirname + '/css'))
+app.use(express.static('css'))
 
 app.get('/', (req, res) => {
   const query = 'SELECT * FROM averias';
@@ -66,6 +66,14 @@ app.post('/editar-averia/:id', (req, res) => {
     };
     res.redirect('/');
   });
+});
+
+app.get('/css/style.css', (req, res) => {
+  res.sendFile(__dirname + '/css/style.css');
+});
+
+app.get('/css/nueva-averia.css', (req, res) => {
+  res.sendFile(__dirname + '/css/nueva-averia.css');
 });
 
 bd.connect((error) => {

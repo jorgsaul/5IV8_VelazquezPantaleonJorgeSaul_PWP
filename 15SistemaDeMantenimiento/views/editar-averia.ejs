@@ -4,9 +4,12 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
+  <link rel="stylesheet" href="/css/nueva-averia.css">
 </head>
 <body>
+  <h1>Editar Averia</h1>
   <form action="/editar-averia/<%= averia.id %>" method="POST">
+    <div class="contenedor-formulario">
     <input type="text" name="equipo_id" id="equipo_id" placeholder="Equipo" value="<%= averia.equipo_id %>" required>
     <input type="text" name="sintoma" id="sintoma" placeholder="Sintoma" value="<%= averia.sintoma %>" required>
     <input type="text" name="diagnostico" id="diagnostico" placeholder="Diagnostico" value="<%= averia.diagnostico %>" required>
@@ -15,6 +18,8 @@
     <input type="time" name="tiempo_inactividad" id="tiempo_inactividad" placeholder="Tiempo Inactividad" value="<%= averia.tiempo_inactividad %>" required>
     <input type="text" name="tecnico_responsable" id="tecnico_responsable" placeholder="Tecnico Responsable" value="<%= averia.tecnico_responsable %>" required>
     <input type="submit" value="Guardar">
+    <button onclick="window.location.href = '/';">Regresar</button>
+    </div>
   </form>
 </body>
 </html>
