@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <nav>
+    <h1><a href="<%= tableName === '/products' ? '/products' : '/' %>"> Lista de Productos <%= tableName === '/products' ? 'Productos' : 'Inicio' %></a></h1>
+  </nav>
+
+  <div class="query-container">
+    <form class="create-container">
+      <h1>Crear Producto</h1>
+      <input type="text" id ="newItemCategory" name="categoryid" placeholder="Categoria del Producto" display="<%= tableName === '/categories' ? 'none' : '' %>">
+      <input type="text" name="name" id="newItemName" placeholder="Nombre del Producto" required>
+      <input type="number" name="price" id="newItemPrice" placeholder="Precio del Producto" required step="0.01">
+      <input type="number" name="stock" id="newItemStock" placeholder="Stock del Producto" required>
+      <button type="submit" id="createButton" onclick="createNewItem(event)">Crear Producto</button>
+    </form>
+  </div>
+</body>
+</html>

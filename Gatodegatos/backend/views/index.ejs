@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Gato de Gatos</title>
+  <link rel="stylesheet" href="/css/style.css">
+</head>
+<body style="display: flex; flex-direction: column;">
+  <h1 style="margin-bottom: 10px;">Gato de Gatos</h1>
+  <div class="game">
+    <div class="container">
+      <% for (let i = 0; i < 3; i++) { %>
+      <div class="row">
+        <% for (let j = 0; j < 3; j++) { %>
+        <div class="col">
+          <% for (let k = 0; k < 3; k++) { %>
+          <div class="row1">
+            <% for (let l = 0; l < 3; l++) { %>
+            <div class="col1" id="cell-<%= i %>-<%= j %>-<%= k %>-<%= l %>">
+              
+            </div>
+            <% } %>
+          </div>
+          <% } %>
+        </div>
+        <% } %>
+      </div>
+      <% } %>
+      <a href="/resultados" class="btn">Ver resultados</a>
+    </div>
+  </div>
+  
+  <script type="module" src="/js/main.js"></script>
+</body>
+</html>

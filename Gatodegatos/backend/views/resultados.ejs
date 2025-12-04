@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resultados - Gato de Gatos</title>
+    <link rel="stylesheet" href="/css/resultados.css">
+</head>
+<body>
+    <div class="container">
+        <h1>🏆 Resultados de Partidas</h1>
+        
+        <div class="header-info">
+            <p>Total: <span class="badge"><%= resultados.length %></span> partidas</p>
+            <a href="/" class="btn btn-secondary">← Volver al juego</a>
+        </div>
+        
+        <% if (resultados.length === 0) { %>
+            <div class="empty-state">
+                <p>📭 No hay resultados guardados aún</p>
+                <a href="/" class="btn btn-primary">Jugar ahora</a>
+            </div>
+        <% } else { %>
+            <div class="table-container">
+                <table class="results-table">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Ganador</th>
+                            <th>Jugador X</th>
+                            <th>Jugador O</th>
+                            <th>Fecha</th>
+                            <th>Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <% resultados.forEach(resultado => { %>
+                        <tr>
+                            <td class="id-cell">#<%= resultado.id %></td>
+                            <td class="winner-cell">
+                                <span class="winner-badge <%= resultado.ganador === 'X' ? 'winner-x' : resultado.ganador === 'O' ? 'winner-o' : 'winner-tie' %>">
+                                    <%= resultado.ganador || 'EMPATE' %>
+                                </span>
+                            </td>
+                            <td><%= resultado.jugador_x %></td>
+                            <td><%= resultado.jugador_o %></td>
+                            <td><%= new Date(resultado.fecha).toLocaleDateString('es-ES', {
+                                year: 'numeric',
+                                month: 'short',
+                                day: 'numeric',
+                                hour: '2-digit',
+                                minute: '2-digit'
+                            }) %></td>
+                            <td class="actions-cell">
+                                <button 
+                                    class="btn btn-danger btn-sm delete-btn" 
+                                    data-id="<%= resultado.id %>">
+                                    Eliminar
+                                </button>
+                            </td>
+                        </tr>
+                        <% }) %>
+                    </tbody>
+                </table>
+            </div>
+            
+            <div class="stats">
+                <h3>📊 Estadísticas</h3>
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <span class="stat-label">Victorias X</span>
+                        <span class="stat-value x-wins"><%= resultados.filter(r => r.ganador === 'X').length %></span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-label">Victorias O</span>
+                        <span class="stat-value o-wins"><%= resultados.filter(r => r.ganador === 'O').length %></span>
+                    </div>
+                    <div class="stat-card">
+                        <span class="stat-label">Empates</span>
+                        <span class="stat-value ties"><%= resultados.filter(r => !r.ganador || r.ganador === 'EMPATE').length %></span>
+                    </div>
+                </div>
+            </div>
+        <% } %>
+    </div>
+
+    <script src="/js/resultados.js"></script>
+</body>
+</html>
