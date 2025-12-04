@@ -2,7 +2,7 @@ import express from "express";
 import cors from "cors";
 import { fileURLToPath } from "url";
 import path, { dirname, join } from "path";
-import resultados from "./routes/resultadosRoutes.js";
+import resultadosRoutes from "./routes/resultadosRoutes.js";
 import Resultado from "./models/Resultado.js";
 
 const app = express();
@@ -32,7 +32,7 @@ app.get("/resultados", async (req, res) => {
   }
 })
 
-app.use("/api/resultados", resultados);
+app.use("/api/resultados", resultadosRoutes);
 
 
 app.listen(3000, () => console.log("Servidor corriendo en el puerto 3000"));

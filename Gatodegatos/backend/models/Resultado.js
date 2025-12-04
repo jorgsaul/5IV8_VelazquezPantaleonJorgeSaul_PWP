@@ -27,6 +27,14 @@ const Resultado = {
       GROUP BY ganador
     `);
     return rows;
+  },
+
+  async eliminar(id) {
+    const [result] = await pool.execute(
+      'DELETE FROM resultados WHERE id = ?',
+      [id]
+    );
+    return result.affectedRows;
   }
 };
 
